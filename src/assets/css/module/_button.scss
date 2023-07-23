@@ -1,0 +1,16 @@
+button{
+  border: none;
+  background: transparent;
+  font-size: $text-body-1;
+  cursor: pointer;
+}
+.btn{
+  padding: 0 16px;
+  height: 36px;
+  border-radius: 4px;
+}
+.btn-flat{
+  &:hover{
+    background-color: $accent-light;
+  }
+}

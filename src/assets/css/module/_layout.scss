@@ -1,9 +1,10 @@
 .header--container{
+  background-color: $white;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
+  padding: 10px 0;
   width: 100%;
   max-width: 1610px;
   height: 50px;
@@ -12,6 +13,7 @@
   top: 0;
   transform: translateX(-50%);
   z-index: 10;
+  border-bottom: 1px solid var(--NN50,#F0F3F7);
 }
 .logo--wrapper{
   img{
@@ -20,13 +22,13 @@
 }
 @media screen and (min-width: $md-screen) {
   .header--container{
-    padding: 16px 20px;
+    padding: 16px 0;
     height: 72px;
   }
 }
 @media screen and (min-width: $lg-screen) {
   .header--container{
-    padding: 20px 36px;
+    padding: 20px 0;
     height: 100px;
   }
   .logo--wrapper{
@@ -38,19 +40,41 @@
 .container{
   max-width: 1610px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.main--container{
   margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 @media screen and (min-width: $md-screen) {
   .container{
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .main--container{
     margin-top: 72px;
+    padding-top: 24px;
+    padding-bottom: 40px;
   }
 }
 @media screen and (min-width: $lg-screen) {
   .container{
-    padding: 0 36px;
-    margin-top: 100px;
+    padding-left: 36px;
+    padding-right: 36px;
   }
+  .main--container{
+    margin-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+}
+.footer--container{
+  border-top: 1px solid var(--NN300,#BFC9D9);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 

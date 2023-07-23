@@ -1,7 +1,7 @@
 .flex{
   display: flex;
   &.wrap{ flex-wrap: wrap; }
-  &.nowrap{ flex-wrap: wrap; }
+  &.nowrap{ flex-wrap: nowrap; }
   &.items-center { align-items: center; }
   &.items-end { align-items: flex-end;}
   &.justify-between { justify-content: space-between; }

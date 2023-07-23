@@ -1,15 +1,21 @@
 // COLOR
-$primary    : #d7130a;
-$secondary  : rgba(0,0,0,.5);
-$white      : #fff;
-$black      : #000;
-
+$primary      : #d7130a;
+$secondary    : rgba(0,0,0,.5);
+$white        : #fff;
+$black        : #000;
+$accent-light : #595f6617;
 
 // TYPOGRAPGHY
-$font-family  : 'Inter', sans-serif;
+$font-family  : 'Lato', sans-serif;
+$font-family-heading: 'Quicksand', sans-serif;
 $text-body-1  : 16px;
 $text-body-2  : 14px;
-
+$thin         : 300;
+$regular      : 400;
+$medium       : 500;
+$bold         : 600;
+$bolder       : 700;
+$black-weight : 900;
 
 // BREAKPOINT MIN WIDTH
 $md-screen  : 768px;
