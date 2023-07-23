@@ -6,6 +6,7 @@ import Footer from './components/footers/Footer.vue'
   <Header />
   <main class="main--container">
     <router-view />
+    <notifications position="bottom right" />
   </main>
   <Footer />
 </template>

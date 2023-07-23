@@ -6,14 +6,14 @@ const emailSubscibe = ref('')
 <template>
   <section>
     <div class="subs-text--wrapper">
-      <h2>Stay home & get your daily needs from our shop</h2>
+      <h1>Stay home & get your daily needs from our shop</h1>
       <p class="text-subtitle-2 text-secondary">Start Your Daily Shopping with <span class="text-primary">Super Indo</span></p>
-      <kInput v-model="emailSubscibe" type="text" color="white" class="input--email--subs" placeholder="Your email address">
+      <kInput v-model="emailSubscibe" type="text" color="white" class="input--email--subs" placeholder="example@mail.com">
         <template #prepend-inner>
           <span class="material-symbols-outlined">send</span>
         </template>
         <template #append-outer>
-          <button class="bg-primary text-white btn--subs">Subscribe</button>
+          <button class="btn-primary text-white btn--subs">Subscribe</button>
         </template>
       </kInput>
     </div>

@@ -1,6 +1,8 @@
 <script setup>
 import kInput from '../input/Input.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
 const urlLogo = ref("https://www.superindo.co.id/images/new/logo-superindo.png")
 const menus = ref([
   {
@@ -15,6 +17,8 @@ const menus = ref([
   }
 ])
 const search = ref('')
+const totalCart = computed(() => store.getters['cart/getTotalProductInCart'])
+
 </script>
 <template>
   <header class="header--container">
@@ -35,7 +39,7 @@ const search = ref('')
           <a class="flex nowrap items-end text-primary" @click="$router.push({name: menu.routeName})">
             <span class="material-symbols-outlined">{{menu.icon}}</span>
             <span class="text-body-2 text-capitalize">{{menu.text}}</span>
-            <span v-if="menu.text=='cart' && $store.getters['cart/getTotalProductCart']" class="bagde--count">{{$store.getters['cart/getTotalProductCart']}}</span>
+            <span v-if="menu.text=='cart' && totalCart" class="bagde--count">{{ totalCart }}</span>
           </a>
         </div>
         <div class="item account">
