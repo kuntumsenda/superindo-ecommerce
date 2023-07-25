@@ -57,12 +57,12 @@ onMounted(() => {
   <div>
     <div class="container">
       <section class="section--products-popular">
-        <div class="title--product-popular flex nowrap justify-between items-center">
+        <div class="title--product-popular flex wrap justify-between items-center">
           <h2>Produk Populer</h2>
           <div class="flex nowrap items-center">
             <div class="filter--product-popular">
               <button class="btn btn-outline info flex items-center" @click="openDropdown">
-                <span>Urutkan {{ filter.sortBy == 'name'? `Nama dari ${filter.sort == 'asc'? 'A ke Z':'Z ke A'}`:`Harga dari ${filter.sort == 'asc'? 'Terendah':'Tertinggi'}` }}</span>
+                <span class="filter--label">Urutkan {{ filter.sortBy == 'name'? `Nama dari ${filter.sort == 'asc'? 'A ke Z':'Z ke A'}`:`Harga dari ${filter.sort == 'asc'? 'Terendah':'Tertinggi'}` }}</span>
                 <span class="material-symbols-outlined">filter_list</span>
               </button>
               <dropdown :show="filter.show">
@@ -105,36 +105,42 @@ onMounted(() => {
   </div>
 </template>
 <style lang="scss" scoped>
+@import '@/assets/css/module/variable';
 .section--products-popular{
   margin-bottom: 40px;
-  h2{ 
-    margin-bottom: 24px; 
-  }
 }
 .title--product-popular{
-  a:hover{ text-decoration: underline; }
+  margin-bottom: 16px;
+  justify-content: center;
+  a:hover{ text-decoration: underline; display: none; }
 }
-.product--grid{
-  margin: 0 -15px;
-  min-height: 1px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  list-style: none;
-  row-gap: 24px;
-  .item--grid{
-    padding-left: 15px;
-    padding-right: 15px;
-    min-height: 1px;
-    width: 20.0%;
+@media screen and (min-width: $md-screen) {
+  .title--product-popular{
+    justify-content: space-between;
+    margin-bottom: 24px;
+    a{ display: block; }
   }
+}
+.filter--label{
+  display: none;
 }
 .filter--product-popular{
   margin: 0 16px;
   .material-symbols-outlined{
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: $md-screen) {
+  .filter--label{
+    display: block;
+  }
+  .filter--product-popular{
+  .material-symbols-outlined{
     font-size: 28px;
     margin-left: 12px;
   }
+}
 }
 .filter--product-popular{
   position: relative;
@@ -154,4 +160,42 @@ onMounted(() => {
   width: 100%;
   margin-top: 16px;
 }
+.product--grid{
+  margin: 0 -15px;
+  min-height: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  row-gap: 24px;
+  .item--grid{
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 1px;
+    width: 50.0%;
+  }
+}
+@media screen and (min-width: $md-screen) {
+  .product--grid{
+  margin: 0 -8px;
+  row-gap: 12px;
+    .item--grid{
+      padding-left: 8px;
+      padding-right: 8px;
+      width: 25.0%;
+    }
+  }
+}
+@media screen and (min-width: $lg-screen) {
+  .product--grid{
+  margin: 0 -15px;
+  row-gap: 24px;
+    .item--grid{
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 20.0%;
+    }
+  }
+}
+
 </style>
