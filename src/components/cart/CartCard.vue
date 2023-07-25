@@ -19,7 +19,6 @@ const disableMinusBtn = computed(() => {
   return quantity.value<=1 ? true : false
 })
 function inputQtyOnChange() {
-  console.log(quantity.value)
   if(!quantity.value){
     msgInputQty = 'Jumlah harus diisi'
     return
@@ -68,12 +67,16 @@ function btnQtyOnClick(type) {
     return
   }
 }
+function removeCart() {
+  store.dispatch('cart/removeFromCart', props.cartItem)
+  notification.notify(store.state.notification.removeCartSuccess);
+}
 </script>
 
 <template>
   <div class="cart--card">
     <div class="flex justify-end btn--remove-item">
-      <button class="btn btn-flat text-negative" @click="$store.dispatch('cart/removeFromCart', cartItem)">
+      <button class="btn btn-flat text-negative" @click="removeCart">
         Hapus Item
       </button>
     </div>
@@ -91,7 +94,7 @@ function btnQtyOnClick(type) {
         <div class="flex nowrap items-center text-body-2 price--wrapper">
           <div v-if="cartItem.discountPercent" class="discount--badge bg-primary-light-1 text-primary">{{ cartItem.discountPercent }}%</div>
           <s v-if="cartItem.priceDiscount" class="text-secondary price--discount">{{ $filters.currencyIDR(cartItem.price) }} <span class="mark-price"></span></s>
-          <span class="text-weight-black text-body-1">{{ $filters.currencyIDR(cartItem.priceDiscount) }}</span>
+          <span class="text-weight-black text-body-1">{{ $filters.currencyIDR(cartItem.priceDiscount?cartItem.priceDiscount:cartItem.price) }}</span>
         </div>
       </div>
     </div>
@@ -117,6 +120,7 @@ function btnQtyOnClick(type) {
 <style lang="scss" scoped>
 .cart--card{
   max-width: 900px;
+  min-width: 550px;
   width: 100%
 }
   .item--wrapper{
@@ -125,7 +129,8 @@ function btnQtyOnClick(type) {
   .img-product--wrapper{
     align-self: stretch;
     img{
-      width: 150px;
+      height: 90px;
+      width: unset;
     }
   }
   .price--discount{ margin-right: 12px;}

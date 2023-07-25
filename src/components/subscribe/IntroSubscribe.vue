@@ -2,14 +2,13 @@
 import kInput from '../input/Input.vue'
 import { ref } from 'vue'
 import { useNotification } from "@kyvg/vue3-notification";
+import { useStore } from 'vuex'
 
+const store = useStore()
 const notification = useNotification()
 const emailSubscibe = ref('')
 function subscribeOnClick () {
-  notification.notify({
-    title: `News Letter telah dikirim ke emailmu`,
-    type: 'success'
-  });
+  notification.notify(store.state.notification.noFitur);
 }
 </script>
 <template>

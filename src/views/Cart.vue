@@ -30,7 +30,7 @@ const totalCheckoutPrice = computed(() => store.state.cart.totalCheckoutPrice)
         </div>
       </section>
       <div class="summary-cart--container">
-        <section class="section--summary-cart">
+        <section class="section--summary-cart shadow">
           <h4>Ringkasan Belanja</h4>
           <div class="flex nowrap justify-between">
             <p>Total Harga ({{ totalCart }} Item)</p>
@@ -85,9 +85,10 @@ const totalCheckoutPrice = computed(() => store.state.cart.totalCheckoutPrice)
   h4{ margin-bottom: 20px; }
 }
 .section--lis-cart{
-  height: calc(100vh - 160px);
+  max-height: calc(100vh - 160px);
+  min-height: 57vh;
   overflow-y: auto;
-  padding-right: 40px;
+  padding-right: 20px;
   &::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
@@ -107,8 +108,6 @@ const totalCheckoutPrice = computed(() => store.state.cart.totalCheckoutPrice)
 .section--summary-cart{
   padding: 16px;
   border-radius: 8px;
-  border-color: #364a5161;
-  box-shadow: 0 1px 4px rgba(141,150,170,0.4);
 }
 .total-discount--wrapper{
   padding: 10px 0 20px;

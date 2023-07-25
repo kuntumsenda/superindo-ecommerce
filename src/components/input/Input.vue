@@ -26,7 +26,7 @@ defineProps({
     default: false
   }
 })
-defineEmits(['blur', 'change', 'update:modelValue'])
+defineEmits(['blur', 'keyup.enter', 'update:modelValue'])
 </script>
 <template>
   <div :class="`input--wrapper ${variant===undefined?'input-standart':'input-'+variant} ${color? `bg-${color}`: ''} ${disable? 'input--disable':''}`">
@@ -41,7 +41,7 @@ defineEmits(['blur', 'change', 'update:modelValue'])
         :placeholder="placeholder"
         @input="$emit('update:modelValue', $event.target.value)"
         @blur="$emit('blur', $event.target.value)"
-        @change="$emit('change', $event.target.value)"
+        @keyup.enter="$emit('keyup.enter')"        
       />
       <div class="append-inner--wrapper"><slot name="append-inner"></slot></div>
     </div>

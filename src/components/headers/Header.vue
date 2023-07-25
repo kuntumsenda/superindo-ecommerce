@@ -2,6 +2,9 @@
 import kInput from '../input/Input.vue'
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
+import { useNotification } from "@kyvg/vue3-notification";
+
+const notification = useNotification()
 const store = useStore()
 const urlLogo = ref("https://www.superindo.co.id/images/new/logo-superindo.png")
 const menus = ref([
@@ -18,7 +21,9 @@ const menus = ref([
 ])
 const search = ref('')
 const totalCart = computed(() => store.getters['cart/getTotalProductInCart'])
-
+function onSearch() {
+  notification.notify(store.state.notification.noFitur);
+}
 </script>
 <template>
   <header class="header--container">
@@ -28,7 +33,7 @@ const totalCart = computed(() => store.getters['cart/getTotalProductInCart'])
       </a>
       <div class="header-search--wrapper flex nowrap items-center">
         <button class="btn btn-flat">Kategori</button>
-        <kInput v-model="search" variant="outline" placeholder="Cari di Super Indo" style="width: 100%;">
+        <kInput v-model="search" variant="outline" placeholder="Cari di Super Indo" style="width: 100%;" @keyup.enter="onSearch">
           <template #prepend-inner>
             <span class="material-symbols-outlined">search</span>
           </template>

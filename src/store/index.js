@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import user from './modules/user'
 import product from './modules/product'
 import cart from './modules/cart'
+import notification from './modules/notification'
 
 export default createStore({
   state: {
@@ -15,6 +16,7 @@ export default createStore({
   modules: {
     user,
     product,
-    cart
+    cart,
+    notification
   }
 })

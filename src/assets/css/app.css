@@ -78,6 +78,10 @@ img {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.text-info {
+  color: #0341bc;
+}
+
 .text-black {
   color: #000;
 }
@@ -176,6 +180,11 @@ img {
   padding: 4px 8px;
   border-radius: 4px;
   margin-right: 8px;
+}
+
+.shadow {
+  box-shadow: 0 1px 4px rgba(141, 150, 170, 0.4);
+  border-color: rgba(54, 74, 81, 0.3803921569);
 }
 
 .header--container {
@@ -373,6 +382,17 @@ button.btn--disable {
   color: #fff;
 }
 
+.btn-outline {
+  border: 1px solid;
+}
+.btn-outline:hover {
+  background-color: rgba(89, 95, 102, 0.0901960784);
+}
+.btn-outline.info {
+  border-color: #0341bc;
+  color: #0341bc;
+}
+
 .btn-flat {
   background-color: transparent;
 }
@@ -461,4 +481,48 @@ a.link--disable {
   transform: translate(-50%);
   border-width: 0.3rem;
   border-color: #d7130a transparent transparent transparent;
+}
+
+.vue-notification-group {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.vue-notification-wrapper {
+  box-shadow: 0 1px 4px rgba(141, 150, 170, 0.4);
+  border-color: rgba(54, 74, 81, 0.3803921569);
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.notif__component {
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 300 !important;
+  background-color: #fff;
+}
+.notif__component.success .notification-title {
+  color: rgb(30, 148, 88);
+}
+.notif__component.error .notification-title {
+  color: #f51105;
+}
+.notif__component.warning .notification-title {
+  color: #e3770c;
+}
+.notif__component.info .notification-title {
+  color: #0341bc;
+}
+.notif__component .notification-title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.notif__component .notif-content {
+  font-size: 12px;
+}
+
+select {
+  padding: 8px 16px;
+  border-radius: 4px;
+  min-height: 36px;
 }/*# sourceMappingURL=app.css.map */

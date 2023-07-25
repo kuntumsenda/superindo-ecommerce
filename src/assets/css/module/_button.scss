@@ -22,6 +22,16 @@ button{
     color: $white;
   }
 }
+.btn-outline{
+  border: 1px solid;
+  &:hover{
+    background-color: $accent-light;
+  }
+  &.info{ 
+    border-color: $info;
+    color: $info; 
+  }
+}
 .btn-flat{
   background-color: transparent;
   &:hover{

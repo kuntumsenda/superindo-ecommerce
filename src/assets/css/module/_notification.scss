@@ -1,0 +1,43 @@
+.vue-notification-group{
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.vue-notification-wrapper{
+  box-shadow: 0 1px 4px rgba(141,150,170,0.4);
+  border-color: #364a5161;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.notif__component{
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: $thin !important;
+  background-color: $white;
+  &.success{
+    .notification-title{
+      color: $positive;
+    }
+  }
+  &.error{
+    .notification-title{
+      color: $negative;
+    }
+  }
+  &.warning{
+    .notification-title{
+      color: $warning;
+    }
+  }
+  &.info{
+    .notification-title{
+      color: $info;
+    }
+  }
+  .notification-title{
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .notif-content{
+    font-size: 12px;
+  }
+}
