@@ -50,9 +50,9 @@ function onSearch() {
         <div class="item account">
           <a class="flex nowrap items-center">
             <div class="account-avatar--wrapper">
-              <img src="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-Transparent-Images.png" alt="avatar">
+              <img :src="$store.state.user.profile.avatar" alt="avatar">
             </div>
-            <span class="text-body-2 text-secondary text--profile-name">Kuntumse...</span>
+            <span class="text-body-2 text-secondary text--profile-name">{{ $filters.ellipsis($store.state.user.profile.username, 5) }}</span>
           </a>
         </div>
       </div>

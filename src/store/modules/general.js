@@ -3,7 +3,7 @@ export const state = {
   profile: {
     username: 'kuntumse',
     fullName: 'Kuntum Chaera Senda',
-    avatar: 'https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-Transparent-Images.png',
+    avatar: '',
   }
 }
 export const getters = {}

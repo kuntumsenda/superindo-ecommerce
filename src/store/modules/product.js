@@ -1,3 +1,4 @@
+import productService from '@/services/product'
 const state = {
   products: [
     {
@@ -158,6 +159,14 @@ const mutations = {
 const actions = {
   applyFilter({commit}, payload) {
     payload.sortBy === 'name' ? commit('SORT_NAME', payload.sort) : commit('SORT_PRICE', payload.sort)
+  },
+  async getListProductFavourite({ rootstate }, params) {
+    try{
+      const res = await productService.getProductFavorite(rootstate.general.webService, params)
+      console.log(res.data)
+    }catch(err){
+      console.log(err)
+    }
   }
 }
 

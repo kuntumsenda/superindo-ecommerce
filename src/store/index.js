@@ -3,6 +3,7 @@ import user from './modules/user'
 import product from './modules/product'
 import cart from './modules/cart'
 import notification from './modules/notification'
+import general from './modules/general'
 
 export default createStore({
   state: {
@@ -17,6 +18,7 @@ export default createStore({
     user,
     product,
     cart,
-    notification
+    notification,
+    general
   }
 })
