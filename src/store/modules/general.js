@@ -1,10 +1,6 @@
 export const namespaced = true
 export const state = {
-  profile: {
-    username: 'kuntumse',
-    fullName: 'Kuntum Chaera Senda',
-    avatar: '',
-  }
+  webService: 'localhost:8080'
 }
 export const getters = {}
 export const mutations = {}

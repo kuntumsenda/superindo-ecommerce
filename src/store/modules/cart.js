@@ -36,14 +36,11 @@ const mutations = {
   DECREMENT_QTY_PRODUCT_IN_CART(state, payload){
     const item = state.listProductInCart.find(item => item.productId === payload.productId)
     item.qty--
-    console.log(item.qty)
     item.totalPrice = item.price*item.qty
     item.totalPriceDiscount = item.priceDiscount*item.qty
   },
   UPDATE_QTY_PRODUCT_IN_CART(state, payload){
     const item = state.listProductInCart.find(item => item.productId === payload.data.productId)
-    console.log(item)
-    console.log(payload.newQty)
     item.qty = payload.newQty
     item.totalPrice = item.price*item.qty
     item.totalPriceDiscount = item.priceDiscount*item.qty

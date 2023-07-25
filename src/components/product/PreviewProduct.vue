@@ -12,7 +12,7 @@ function addToCart(item) {
     return false
   }
   let payload = item
-  payload['qty'] = payload.qty?payload.qty+1:1
+  payload['qty'] = payload.qty?payload.qty:1
   store.dispatch('cart/addToCart', payload)
   notification.notify(store.state.notification.addToCartSuccess);
 }
