@@ -37,16 +37,12 @@ p{
 img{ 
   width: 100%; 
 }
-a{
-  text-decoration: none;
-  cursor: pointer;
-  color: $black;
-  font-size: $text-body-1;
-}
+
 .text-subtitle-1{ font-size: 24px; }
 .text-subtitle-2{ font-size: 20px; }
 .text-body-1{ font-size: $text-body-1; }
 .text-body-2{ font-size: $text-body-2; }
+.text-caption{ font-size: 12px; }
 .text-primary{ color: $primary; }
 .text-secondary{ color: $secondary; }
 .text-black{ color: $black; }
@@ -55,6 +51,8 @@ a{
 .text-negative{ color: $negative; }
 .text-grey-1{ color: $grey-1;}
 
+.text-center{  text-align: center; }
+.text-right{ text-align: right; }
 
 .text-capitalize { text-transform: capitalize; }
 

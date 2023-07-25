@@ -9,6 +9,7 @@ const state = {
       discountPercent: 15,
       priceDiscount: 14390,
       stock: 999,
+      stockAfterCart: 999,
       rating: 5,
     },
     {
@@ -19,7 +20,8 @@ const state = {
       price: 51990,
       discountPercent: 25,
       priceDiscount: 36500,
-      stock: 999,
+      stock: 4,
+      stockAfterCart: 4,
       rating: 4,
     },
     {
@@ -31,6 +33,7 @@ const state = {
       discountPercent: 30,
       priceDiscount: 25000,
       stock: 999,
+      stockAfterCart: 999,
       rating: 3,
     },
     {
@@ -42,6 +45,7 @@ const state = {
       discountPercent: 0,
       priceDiscount: 0,
       stock: 999,
+      stockAfterCart: 999,
       rating: 2,
     },
     {
@@ -53,6 +57,7 @@ const state = {
       discountPercent: 0,
       priceDiscount: 0,
       stock: 0,
+      stockAfterCart: 0,
       rating: 3,
     }
   ]
@@ -61,9 +66,17 @@ const getters = {
   getProducts(state) { return state.products }
 }
 const mutations = {
-  DECREMENT_STOCK(state, payload){
+  DECREMENT_STOCK(state, id){
+    const product = state.products.find(product => product.productId === id)
+    product.stockAfterCart--
+  },
+  INCREMENT_STOCK(state, id){
+    const product = state.products.find(product => product.productId === id)
+    product.stockAfterCart++
+  },
+  UPDATE_STOCK(state, payload) {
     const product = state.products.find(product => product.productId === payload.productId)
-    product.stock--
+    product.stockAfterCart = product.stock-payload.qty
   }
 }
 const actions = {}

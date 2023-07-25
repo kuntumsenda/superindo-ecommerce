@@ -49,13 +49,6 @@ img {
   width: 100%;
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: #000;
-  font-size: 16px;
-}
-
 .text-subtitle-1 {
   font-size: 24px;
 }
@@ -70,6 +63,10 @@ a {
 
 .text-body-2 {
   font-size: 14px;
+}
+
+.text-caption {
+  font-size: 12px;
 }
 
 .text-primary {
@@ -98,6 +95,14 @@ a {
 
 .text-grey-1 {
   color: rgba(0, 0, 0, 0.26);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-capitalize {
@@ -268,14 +273,30 @@ input::placeholder {
   color: rgba(0, 0, 0, 0.231372549);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .input--wrapper {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 }
 
+.input-standart .input--control {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2705882353);
+  border-radius: 0;
+}
+
 .input-outline .input--control {
-  border: 1px solid;
+  border: 1px solid rgba(0, 0, 0, 0.2705882353);
 }
 
 .input--control {
@@ -306,6 +327,10 @@ input::placeholder {
   margin-left: 8px;
 }
 
+.input--center input {
+  text-align: center;
+}
+
 .input--email--subs {
   border-radius: 40px;
 }
@@ -322,10 +347,15 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+button.btn--disable {
+  background-color: rgba(0, 0, 0, 0.26) !important;
+  color: rgba(109, 109, 109, 0.6549019608) !important;
+  cursor: default;
+}
 
 .btn {
   padding: 0 16px;
-  height: 36px;
+  min-height: 36px;
   border-radius: 4px;
 }
 
@@ -351,6 +381,17 @@ button {
 }
 .btn-primary:hover {
   background-color: rgba(215, 20, 10, 0.8823529412);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 16px;
+}
+a.link--disable {
+  color: rgba(0, 0, 0, 0.26);
+  cursor: default;
 }
 
 .flex {

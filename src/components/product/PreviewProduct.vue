@@ -7,10 +7,16 @@ defineProps(['product'])
 const store = useStore()
 const notification = useNotification()
 function addToCart(item) {
-  if(!item.stock){
+  if(!item.stock || !item.stockAfterCart){
+    notification.notify({
+    title: `Produk sudah tidak tersedia`,
+    type: 'error'
+  });
     return false
   }
-  store.dispatch('cart/addToCart', item)
+  let payload = item
+  payload['qty'] = payload.qty?payload.qty+1:1
+  store.dispatch('cart/addToCart', payload)
   notification.notify({
     title: `Produk telah ditambahkan ke keranjang`,
     type: 'success'
@@ -26,7 +32,7 @@ function addToCart(item) {
       <div class="text-capitalize text-secondary text-body-2 text-ellipsis-2 category-product">
         <span v-for="(item, index) in product.category" :key="index"><span v-if="index!=0">, </span>{{ item }}</span>
       </div>
-      <p :class="`text--stock text-weight-medium ${product.stock?'text-positive':'text-grey-1'}`">{{ product.stock?'In Stock':'Out of Stock' }}</p>
+      <p :class="`text--stock text-weight-medium ${product.stockAfterCart?'text-positive':'text-grey-1'}`">{{ product.stockAfterCart?'In Stock':'Out of Stock' }}</p>
       <h5 class="title--product  text-ellipsis-2 text-subtitle-2 text-capitalize">{{ product.productName }}</h5>
       <star-rating read-only v-model:rating="product.rating" :star-size="16" />
       <div class="price--product text-weight-bold flex nowrap items-end text-subtitle-2"><span>Rp. {{ product.priceDiscount?product.priceDiscount:product.price }}</span></div>
@@ -35,9 +41,9 @@ function addToCart(item) {
         <s v-if="product.priceDiscount" class="text-secondary regular-price">Rp. {{ product.price }} <span class="mark-price"></span></s>
       </div>
       <div>
-        <button class="btn btn-accent btn--add-cart flex nowrap items-center" @click="addToCart(product)">
+        <button :class="`btn btn-accent btn--add-cart flex nowrap items-center ${!product.stockAfterCart?'btn--disable':''}`" @click="addToCart(product)">
           <span class="material-symbols-outlined">shopping_cart</span>
-          <span>Add To Cart</span>
+          <span>{{product.stockAfterCart ? 'Add To Cart' : 'Sold Out'}}</span>
         </button>
       </div>
     </div>

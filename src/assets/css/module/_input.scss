@@ -10,13 +10,29 @@ input{
     color: #0000003b;
   }
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .input--wrapper{
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 }
+.input-standart{
+  .input--control { 
+    border-bottom: 1px solid #00000045; 
+    border-radius: 0;
+  }
+}
 .input-outline{
-  .input--control { border: 1px solid; }
+  .input--control { border: 1px  solid #00000045; }
 }
 .input--control{
   padding-left: 12px;
@@ -40,6 +56,9 @@ input{
 }
 .append-inner--wrapper, .append-outer--wrapper{
   margin-left: 8px;
+}
+.input--center{
+  input{ text-align: center; }
 }
 .input--email--subs{
   border-radius: 40px;

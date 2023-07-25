@@ -3,10 +3,15 @@ button{
   background: transparent;
   font-size: $text-body-1;
   cursor: pointer;
+  &.btn--disable{
+    background-color: $grey-1 !important;
+    color: #6d6d6da7 !important;
+    cursor: default;
+  }
 }
 .btn{
   padding: 0 16px;
-  height: 36px;
+  min-height: 36px;
   border-radius: 4px;
 }
 .btn-accent{

@@ -1,16 +1,35 @@
 <script setup>
 defineProps({
-  id: String,
-  type: String,
+  id: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
   modelValue: String,
-  variant: String,
-  placeholder: String,
-  color: String
+  variant: {
+    type: String,
+    default: 'standart'
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  color: {
+    type: String,
+    default: ''
+  },
+  disable: {
+    type: Boolean,
+    default: false
+  }
 })
-defineEmits(['update:modelValue'])
+defineEmits(['blur', 'change', 'update:modelValue'])
 </script>
 <template>
-  <div :class="`input--wrapper ${variant===undefined?'':'input-'+variant} bg-${color}`">
+  <div :class="`input--wrapper ${variant===undefined?'input-standart':'input-'+variant} ${color? `bg-${color}`: ''} ${disable? 'input--disable':''}`">
     <div class="prepend-outer--wrapper"><slot name="prepend-outer"></slot></div>
     <div class="input--control">
       <div class="prepend-inner--wrapper"><slot name="prepend-inner"></slot></div>
@@ -21,6 +40,8 @@ defineEmits(['update:modelValue'])
         :variant="variant"
         :placeholder="placeholder"
         @input="$emit('update:modelValue', $event.target.value)"
+        @blur="$emit('blur', $event.target.value)"
+        @change="$emit('change', $event.target.value)"
       />
       <div class="append-inner--wrapper"><slot name="append-inner"></slot></div>
     </div>

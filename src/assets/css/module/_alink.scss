@@ -1,0 +1,10 @@
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: $black;
+  font-size: $text-body-1;
+  &.link--disable{
+    color: $grey-1;
+    cursor: default;
+  }
+}
