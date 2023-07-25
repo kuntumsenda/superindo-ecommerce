@@ -31,6 +31,9 @@ input[type=number] {
     border-radius: 0;
   }
 }
+.input-plain{
+  border: none;
+}
 .input-outline{
   .input--control { border: 1px  solid #00000045; }
 }

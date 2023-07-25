@@ -90,14 +90,14 @@ function btnQtyOnClick(type) {
         </div>
         <div class="flex nowrap items-center text-body-2 price--wrapper">
           <div v-if="cartItem.discountPercent" class="discount--badge bg-primary-light-1 text-primary">{{ cartItem.discountPercent }}%</div>
-          <s v-if="cartItem.priceDiscount" class="text-secondary price--discount">Rp. {{ cartItem.price }} <span class="mark-price"></span></s>
-          <span class="text-weight-black text-body-1">Rp. {{ cartItem.priceDiscount }}</span>
+          <s v-if="cartItem.priceDiscount" class="text-secondary price--discount">{{ $filters.currencyIDR(cartItem.price) }} <span class="mark-price"></span></s>
+          <span class="text-weight-black text-body-1">{{ $filters.currencyIDR(cartItem.priceDiscount) }}</span>
         </div>
       </div>
     </div>
     <div class="flex nowrap justify-between items-end qty-note--wrapper">
       <div class="sub-total--price text-weight-black">
-        <span>Total: </span><span>Rp. {{ cartItem.totalPriceDiscount?cartItem.totalPriceDiscount:cartItem.totalPrice }}</span>
+        <span>Total: </span><span>{{ $filters.currencyIDR(cartItem.totalPriceDiscount?cartItem.totalPriceDiscount:cartItem.totalPrice) }}</span>
       </div>
       <div>
         <kInput v-model="quantity" class="input--center input--qty" type="number" placeholder="0" @blur="updateCart" @input="inputQtyOnChange">

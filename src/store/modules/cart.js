@@ -77,10 +77,11 @@ const actions = {
   removeFromCart ({ commit }, payload) { 
     commit('SPLICE_PRODUCT_IN_CART', payload.productId)
     commit('COUNT_TOTAL_PRICE_IN_CART')
+    payload.qty = 0
+    payload.stockAfterCart = payload.stock
     commit('product/UPDATE_STOCK', payload, { root: true })
   },
   updateCart ({ commit }, payload) {
-    console.log(payload)
     const data = payload.data
     if(payload.type == 'increment' && data.stockAfterCart > 0){
       commit('INCREMENT_QTY_PRODUCT_IN_CART', data)

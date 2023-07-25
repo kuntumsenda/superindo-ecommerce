@@ -1,19 +1,28 @@
 <script setup>
 import kInput from '../input/Input.vue'
 import { ref } from 'vue'
+import { useNotification } from "@kyvg/vue3-notification";
+
+const notification = useNotification()
 const emailSubscibe = ref('')
+function subscribeOnClick () {
+  notification.notify({
+    title: `News Letter telah dikirim ke emailmu`,
+    type: 'success'
+  });
+}
 </script>
 <template>
   <section>
     <div class="subs-text--wrapper">
       <h1>Stay home & get your daily needs from our shop</h1>
       <p class="text-subtitle-2 text-secondary">Start Your Daily Shopping with <span class="text-primary">Super Indo</span></p>
-      <kInput v-model="emailSubscibe" type="text" color="white" class="input--email--subs" placeholder="example@mail.com">
+      <kInput v-model="emailSubscibe" type="text" color="white" variant="plain" class="input--email--subs" placeholder="example@mail.com">
         <template #prepend-inner>
           <span class="material-symbols-outlined">send</span>
         </template>
         <template #append-outer>
-          <button class="btn-primary text-white btn--subs">Subscribe</button>
+          <button class="btn-primary text-white btn--subs" @click="subscribeOnClick">Subscribe</button>
         </template>
       </kInput>
     </div>

@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -293,6 +294,10 @@ input[type=number] {
 .input-standart .input--control {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2705882353);
   border-radius: 0;
+}
+
+.input-plain {
+  border: none;
 }
 
 .input-outline .input--control {

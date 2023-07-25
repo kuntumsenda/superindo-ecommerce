@@ -35,10 +35,10 @@ function addToCart(item) {
       <p :class="`text--stock text-weight-medium ${product.stockAfterCart?'text-positive':'text-grey-1'}`">{{ product.stockAfterCart?'In Stock':'Out of Stock' }}</p>
       <h5 class="title--product  text-ellipsis-2 text-subtitle-2 text-capitalize">{{ product.productName }}</h5>
       <star-rating read-only v-model:rating="product.rating" :star-size="16" />
-      <div class="price--product text-weight-bold flex nowrap items-end text-subtitle-2"><span>Rp. {{ product.priceDiscount?product.priceDiscount:product.price }}</span></div>
+      <div class="price--product text-weight-bold flex nowrap items-end text-subtitle-2"><span>{{ $filters.currencyIDR(product.priceDiscount?product.priceDiscount:product.price) }}</span></div>
       <div :class="`price-regular--product flex nowrap items-center text-body-2 ${!product.discountPercent?'no-discount':''}`">
         <div v-if="product.discountPercent" class="discount--badge bg-primary-light-1 text-primary">{{ product.discountPercent }}%</div>
-        <s v-if="product.priceDiscount" class="text-secondary regular-price">Rp. {{ product.price }} <span class="mark-price"></span></s>
+        <s v-if="product.priceDiscount" class="text-secondary regular-price">{{ $filters.currencyIDR(product.price) }}<span class="mark-price"></span></s>
       </div>
       <div>
         <button :class="`btn btn-accent btn--add-cart flex nowrap items-center ${!product.stockAfterCart?'btn--disable':''}`" @click="addToCart(product)">

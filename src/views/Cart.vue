@@ -34,16 +34,16 @@ const totalCheckoutPrice = computed(() => store.state.cart.totalCheckoutPrice)
           <h4>Ringkasan Belanja</h4>
           <div class="flex nowrap justify-between">
             <p>Total Harga ({{ totalCart }} Item)</p>
-            <p>Rp. {{ totalPrice }}</p>
+            <p>{{ $filters.currencyIDR(totalPrice) }}</p>
           </div>
           <div class="flex nowrap justify-between total-discount--wrapper">
             <p>Anda telah Berhemat</p>
-            <p>Rp. {{ totalDiscount }}</p>
+            <p>{{ $filters.currencyIDR(totalDiscount) }}</p>
           </div>
           <hr>
           <div class="flex nowrap justify-between text-subtitle-2 text-weight-black price-checkout--wrapper">
-            <p>Total Harga</p>
-            <p>Rp. {{ totalCheckoutPrice }}</p>
+            <p>Total Yang di Bayar</p>
+            <p>{{ $filters.currencyIDR(totalCheckoutPrice) }}</p>
           </div>
           <button class="btn btn-primary btn--checkout">Checkout ({{ totalCart }})</button>
         </section>
@@ -88,6 +88,21 @@ const totalCheckoutPrice = computed(() => store.state.cart.totalCheckoutPrice)
   height: calc(100vh - 160px);
   overflow-y: auto;
   padding-right: 40px;
+  &::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar{
+    width: 10px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: #5253583c;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(0deg, gba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%,rgba(255, 255, 255, 0.5) 50%,
+  rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent)
+  }
 }
 .section--summary-cart{
   padding: 16px;
